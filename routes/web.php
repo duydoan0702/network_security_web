@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryProduct;
+use App\Http\Controllers\ProductController;
 
 // Route tĩnh trả về các view
 //Route::get('/product', function () {
@@ -28,8 +29,11 @@ Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 Route::get('/logout', [AdminController::class, 'logout']);
 Route::get('/product', [HomeController::class, 'index']);
-Route::get('/add_product',[ProductController::class], 'add_product');
-Route::get('/save_product', [ProductController::class], 'save_product');
+Route::get('/add_product',[ProductController::class, 'add_product']);
+Route::post('/save_product', [ProductController::class, 'save_product']);
+Route::get('/all_product', [ProductController::class, 'all_product']);
+Route::get('/unactive_product/{product_id}', [ProductController::class ,'unactive_product']);
+Route::get('/active_product/{product_id}', [ProductController::class , 'active_product']);
 
 // Route quản lý danh mục sản phẩm
 Route::get('/add_category_product', [CategoryProduct::class, 'add_category_product']);

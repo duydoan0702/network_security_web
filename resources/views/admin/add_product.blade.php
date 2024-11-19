@@ -16,7 +16,7 @@
 
             <div class="panel-body">
                 <div class="position-center">
-                    <form role="form" action="{{ URL::to('/save-product') }}" 
+                    <form role="form" action="{{ URL::to('/save_product') }}" 
                           method="post" enctype="multipart/form-data">
                         {{-- Token bảo mật CSRF --}}
                         {{ csrf_field() }}
@@ -109,9 +109,7 @@
                         </div>
 
                         {{-- Nút Thêm sản phẩm --}}
-                        <button type="submit" 
-                                name="add_product" 
-                                class="btn btn-info">
+                        <button type="submit" name="add_product" class="btn btn-info">
                             Thêm sản phẩm
                         </button>
                     </form>

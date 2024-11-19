@@ -76,6 +76,16 @@
                         <li><a href="{{URL::to('/all_category_product')}}">Liệt kê danh mục</a></li>
                     </ul>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Sản phẩm</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{URL::to('/add_product')}}">Thêm sản phẩm</a></li>
+                        <li><a href="{{URL::to('/all_product')}}">Liệt kê sản phẩm</a></li>
+                    </ul>
+                </li>
                 <li>
                     <a href="login.html">
                         <i class="fa fa-user"></i>
