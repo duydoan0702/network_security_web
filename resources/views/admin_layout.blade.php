@@ -113,6 +113,18 @@
 <script src="{{asset('public/backend/js/jquery.slimscroll.js')}}"></script>
 <script src="{{asset('public/backend/js/jquery.nicescroll.js')}}"></script>
 <script src="{{asset('public/backend/js/jquery.scrollTo.js')}}"></script>
+<script src="{{asset('public/backend/package/build/ckeditor.js')}}"></script>
+<script>
+    const editorIds = ['ckeditor', 'ckeditor1', 'ckeditor2', 'ckeditor3', 'id4'];
+
+    editorIds.forEach(id => {
+        const textarea = document.getElementById(id); 
+        if (textarea) { 
+            ClassicEditor
+                .create(textarea) 
+        }
+    });
+</script>
 <script>
     $(document).ready(function() {
         jQuery('.small-graph-box').hover(function() {

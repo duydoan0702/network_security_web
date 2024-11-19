@@ -72,7 +72,7 @@
                                       rows="8" 
                                       class="form-control" 
                                       name="product_desc" 
-                                      id="product_desc" 
+                                      id="ckeditor1" 
                                       placeholder="Mô tả sản phẩm"></textarea>
                         </div>
 
@@ -83,7 +83,7 @@
                                       rows="8" 
                                       class="form-control" 
                                       name="product_content" 
-                                      id="product_content" 
+                                      id="id4" 
                                       placeholder="Nội dung sản phẩm"></textarea>
                         </div>
 
