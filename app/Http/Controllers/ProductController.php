@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-use Session;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 
@@ -55,7 +55,7 @@ class ProductController extends Controller
 
     private function AuthLogin(){
         if(!Session::get('admin_id')){
-            return Direct::to('admin')->send();
+            return Redirect::to('admin')->send();
         }
     }
 
@@ -96,5 +96,63 @@ class ProductController extends Controller
   
         return Redirect::to('all_product');
     }
+
+    public function edit_product($product_id) {
+        $this->AuthLogin();
+    
+        $cate_product = DB::table('tbl_category_product')
+            ->orderBy('category_id', 'desc')
+            ->get();
+    
+        $edit_product = DB::table('tbl_product')
+            ->where('product_id', $product_id)
+            ->get();
+    
+        $manager_product = view('admin.edit_product')
+            ->with('edit_product', $edit_product)
+            ->with('cate_product', $cate_product);
+    
+        return view('admin_layout')->with('admin.edit_product', $manager_product);
+    }
+    
+
+    public function update_product(Request $request, $product_id){
+        $this->AuthLogin();
+
+        // get date from form
+        $data = [
+            'product_name' => $request->product_name,
+            'product_slug' => $request->product_slug,
+            'product_price' => $request->product_price,
+            'product_desc' => $request->product_desc,
+            'product_content' => $request->product_content,
+            'category_id' => $request->product_cate,
+            'product_status' => $request->product_status,
+        ];
+
+        // Kiểm tra nếu có hình ảnh mới
+        if ($get_image = $request->file('product_image')) {
+            $image_name = pathinfo($get_image->getClientOriginalName(), PATHINFO_FILENAME);
+            $new_image = $image_name . rand(0, 99) . '.' . $get_image->getClientOriginalExtension();
+            $get_image->move('public/uploads/product', $new_image);
+            $data['product_image'] = $new_image;
+        }
+
+        DB::table('tbl_product')->where('product_id', $product_id)->update($data);
+
+        Session::put('message', 'Cập nhật sản phẩm thành công');
+        return redirect('all_product');
+    }
+
+    public function delete_product($product_id)
+    {
+        $this->AuthLogin();
+
+        DB::table('tbl_product')->where('product_id', $product_id)->delete();
+
+        Session::put('message', 'Xóa sản phẩm thành công');
+        return redirect('all_product');
+    }
+
     
 }

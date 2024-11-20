@@ -34,6 +34,9 @@ Route::post('/save_product', [ProductController::class, 'save_product']);
 Route::get('/all_product', [ProductController::class, 'all_product']);
 Route::get('/unactive_product/{product_id}', [ProductController::class ,'unactive_product']);
 Route::get('/active_product/{product_id}', [ProductController::class , 'active_product']);
+Route::get('/edit_product/{product_id}', [ProductController::class ,'edit_product']);
+Route::post('/update_product/{product_id}', [ProductController::class , 'update_product']);
+Route::get('/delete_product/{product_id}', [ProductController::class ,'delete_product']);
 
 // Route quản lý danh mục sản phẩm
 Route::get('/add_category_product', [CategoryProduct::class, 'add_category_product']);
