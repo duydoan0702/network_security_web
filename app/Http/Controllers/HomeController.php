@@ -16,7 +16,16 @@ class HomeController extends Controller
             ->where('category_status', '1') 
             ->orderBy('category_id', 'desc') 
             ->get(); 
+        
+        $all_product = DB::table('tbl_product')
+            ->where('product_status', '0')
+            ->orderBy('product_id', 'desc')
+            ->limit(15)
+            ->get();
 
-        return view('pages.home')->with('category', $cate_product);
+        return view('pages.home')
+            ->with('category', $cate_product)
+            ->with('all_product', $all_product);
+
     }
 }

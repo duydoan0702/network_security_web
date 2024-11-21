@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Session;
-use DB;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 session_start();
 use Illuminate\Support\Facades\Redirect;
 
@@ -16,7 +16,7 @@ class AdminController extends Controller
     }
 
     public function show_dashboard() {
-        this->AuthLogin();  
+        $this->AuthLogin();  
         return view('admin.dashboard');
     }
 
