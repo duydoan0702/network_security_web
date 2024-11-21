@@ -80,7 +80,7 @@ class ProductController extends Controller
             ->where('product_id', $product_id)
             ->update(['product_status' => 1]);
     
-        Session::put('message', 'Sản phẩm đã được kích hoạt thành công');
+        Session::put('message', 'Sản phẩm đã được ẩn thành công');
         return Redirect::to('all_product');
     }
     
@@ -92,7 +92,7 @@ class ProductController extends Controller
             ->update(['product_status' => 0]);
     
      
-        Session::put('message', 'Sản phẩm đã được ẩn thành công');
+        Session::put('message', 'Sản phẩm đã được kích hoạt thành công');
   
         return Redirect::to('all_product');
     }

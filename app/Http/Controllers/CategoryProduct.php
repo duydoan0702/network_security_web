@@ -68,4 +68,50 @@ class CategoryProduct extends Controller
 
         return Redirect::to('all_category_product');
     }
+
+    public function show_category_home(Request $request, $slug_category_product)
+    {
+        // Lấy danh sách danh mục 
+        $cate_product = DB::table('tbl_category_product')
+            ->where('category_status', '1')
+            ->orderBy('category_id', 'desc')
+            ->get();
+
+        // Lấy danh sách sản phẩm thuộc danh mục
+        $category_by_id = DB::table('tbl_product')
+            ->join('tbl_category_product', 'tbl_product.category_id', '=', 'tbl_category_product.category_id')
+            ->where('tbl_category_product.slug_category_product', $slug_category_product)
+            ->get();
+
+        // Lấy thông tin SEO từ danh mục
+        $meta_desc = '';
+        $meta_keywords = '';
+        $meta_title = '';
+        $url_canonical = $request->url(); // URL hiện tại
+
+        foreach ($category_by_id as $product) {
+            $meta_desc = $product->category_desc;
+            $meta_keywords = $product->category_product_keywords;
+            $meta_title = $product->category_name;
+            break; // Lấy thông tin từ sản phẩm đầu tiên (nếu có)
+        }
+
+        // Lấy tên danh mục
+        $category_name = DB::table('tbl_category_product')
+            ->where('slug_category_product', $slug_category_product)
+            ->limit(1)
+            ->get();
+
+        // Truyền dữ liệu tới view
+        return view('pages.category.show_category', [
+            'category' => $cate_product,
+            'category_by_id' => $category_by_id,
+            'category_name' => $category_name,
+            'meta_desc' => $meta_desc,
+            'meta_keywords' => $meta_keywords,
+            'meta_title' => $meta_title,
+            'url_canonical' => $url_canonical,
+        ]);
+    }
+
 }
