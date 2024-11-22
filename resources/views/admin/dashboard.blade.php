@@ -1,4 +1,4 @@
 @extends('admin_layout')
 @section('admin_content')
-<h3> chao mung ban den voi admin </h3>
+<h1> chào mừng bạn đến với trang quản lí Admin</h1>
 @endsection

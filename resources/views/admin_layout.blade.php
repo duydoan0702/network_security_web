@@ -36,7 +36,6 @@
             </li>
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <img alt="" src="{{('public/backend/images/1.png')}}">
                     <span class="username">
                         <?php
                             $name = Session::get('admin_name');
@@ -61,7 +60,7 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="index.html">
+                    <a class="active" href="#">
                         <i class="fa fa-dashboard"></i>
                         <span>Tổng quan</span>
                     </a>
@@ -100,11 +99,6 @@
     <section class="wrapper">
         @yield('admin_content')
     </section>
-    <div class="footer">
-        <div class="wthree-copyright">
-            <p>ban quyen cua ai <a href="http://w3layouts.com">W3layouts</a></p>
-        </div>
-    </div>
 </section>
 </section>
 <script src="{{asset('public/backend/js/bootstrap.js')}}"></script>
