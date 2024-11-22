@@ -9,7 +9,7 @@
         <div class="product-image-wrapper">
             <div class="single-products">
                 <div class="productinfo text-center">
-                    <form>
+                    <form action="{{URL::to('/pages/cart-show_cart')}}" method="POST">
                         @csrf
                         <!-- Truyền dữ liệu sản phẩm vào form ẩn -->
                         <input type="hidden" value="{{ $product->product_id }}" class="cart_product_id_{{ $product->product_id }}">

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryProduct;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 
 // Route tĩnh trả về các view
 //Route::get('/product', function () {
@@ -38,6 +39,8 @@ Route::get('/edit_product/{product_id}', [ProductController::class ,'edit_produc
 Route::post('/update_product/{product_id}', [ProductController::class , 'update_product']);
 Route::get('/delete_product/{product_id}', [ProductController::class ,'delete_product']);
 Route::get('/danh-muc-san-pham/{slug_category_product}',[CategoryProduct::class, 'show_category_home']);
+Route::post('/save-cart',[CartController::class, 'save_cart']);
+Route::get('/show-cart',[CartController::class, 'show_cart']);
 
 // Route quản lý danh mục sản phẩm
 Route::get('/add_category_product', [CategoryProduct::class, 'add_category_product']);

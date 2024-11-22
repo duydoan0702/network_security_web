@@ -87,7 +87,7 @@ class CategoryProduct extends Controller
         $meta_desc = '';
         $meta_keywords = '';
         $meta_title = '';
-        $url_canonical = $request->url(); // URL hiện tại
+        $url_canonical = $request->url();
 
         foreach ($category_by_id as $product) {
             $meta_desc = $product->category_desc;
