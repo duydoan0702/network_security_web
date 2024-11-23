@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="login-container">
-        <form action="{{URL::to('/admin-dashboard')}}" method="post" class="login-form">
+        <form action="{{URL::to('/home-page')}}" method="post" class="login-form">
             @csrf
             <h1>Chào Mừng 👏</h1>
             <p>Vui lòng nhập thông tin chi tiết của bạn!</p>

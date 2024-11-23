@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryProduct;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
 
 // Route tĩnh trả về các view
 //Route::get('/product', function () {
@@ -26,6 +27,10 @@ Route::get('/contact', function () {
 
 // Route sử dụng controller
 Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/user', [UserController::class, 'index']);
+Route::post('/user-logIn',[UserController::class, 'logIn']);
+Route::post('/user-signUp', [UserController::class, 'signUp']);
+Route::get('/home-page',[UserController::class, 'show_homepage']);
 Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 Route::get('/logout', [AdminController::class, 'logout']);
