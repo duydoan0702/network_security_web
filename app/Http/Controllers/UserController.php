@@ -25,9 +25,9 @@ class UserController extends Controller
 
         if($result && Hash::check($user_password, $result->user_password)){
             Session::put('user_id', $result->user_id);
-            return Redirect('/home-page');
+            return Redirect::intended('/home-page');
         }else{
-            Session::put('messaeg', 'Mật khẩu hoặc email không đúng, vui lòng nhập lại');
+            Session::flash('message', 'Mật khẩu hoặc email không đúng, vui lòng nhập lại');
             return Redirect::to('/user');
         }
     }
@@ -38,27 +38,54 @@ class UserController extends Controller
         $user_email = $request->input('user_email');
         $user_password = $request->input('user_password');
 
+        $this->checkPassword($user_password);
+        if (Session::has('message')) {
+            return Redirect::back()->withInput();
+        }
+
         $result = DB::table('user_table')
+            ->select('user_id', 'user_password')
             ->where('user_name', $user_name)
             ->orWhere('user_email', $user_email)
             ->first();
         if($result){
-            Session::put('message', 'Tên người dùng hoặc email đã tồn tại, vui lòng chọn tên khác.');
-            return Redirect::to('/user');
+            Session::flash('message', 'Tên người dùng hoặc email đã tồn tại, vui lòng chọn tên khác.');
+            return Redirect::back()->withInput();
         }else{
             DB::table('user_table')->insert([
                 'user_name' => $user_name,
                 'user_email' => $user_email,
                 'user_password' => Hash::make($user_password),
             ]);
-            Session::put('message', 'Đăng ký thành công, vui lòng đăng nhập');
+            Session::flash('message', 'Đăng ký thành công, vui lòng đăng nhập');
             return Redirect::to('/user');
         }
     }
 
-    public function show_homepage(){
-        return view('users.home');
+    private function checkPassword(String $user_password){
+        $errors = [];
+    
+        if(strlen($user_password) < 8){
+            $errors[] = "Mật khẩu quá ngắn! Phải có ít nhất 8 ký tự.";
+        }
+        if(!preg_match("#[0-9]+#", $user_password)){
+            $errors[] = "Mật khẩu phải bao gồm ít nhất một chữ số!";
+        }
+        if(!preg_match("#[a-zA-Z]+#", $user_password)){
+            $errors[] = "Mật khẩu phải bao gồm ít nhất một chữ cái!";
+        }
+
+        if(!empty($errors)){
+            session::flash('message', implode(" ", $errors));
+        }
+    
+
     }
+
+    public function forget_password(){
+        return view('users.forget_password');
+    }
+
 
     public function AuthLogin(){
         $user_id = Session::get('user_id');

@@ -24,7 +24,7 @@
 <section id="container">
 <header class="header fixed-top clearfix">
     <div class="brand">
-        <a href="index.html" class="logo">ADMIN</a>
+        <a class="logo">ADMIN</a>
         <div class="sidebar-toggle-box">
             <div class="fa fa-bars"></div>
         </div>
@@ -49,7 +49,7 @@
                 <ul class="dropdown-menu extended logout">
                     <li><a href="#"><i class="fa fa-suitcase"></i> cá nhân</a></li>
                     <li><a href="#"><i class="fa fa-cog"></i> cài đặt</a></li>
-                    <li><a href="{{URL::to('/logout')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
+                    <li><a href="{{URL::to('admin/logout')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
                 </ul>
             </li>
         </ul>
@@ -60,7 +60,7 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="#">
+                    <a class="active" href="{{ url::to('/admin/show-dashboard')}}">
                         <i class="fa fa-dashboard"></i>
                         <span>Tổng quan</span>
                     </a>

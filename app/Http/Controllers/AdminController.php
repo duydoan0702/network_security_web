@@ -15,12 +15,11 @@ class AdminController extends Controller
         return view('admin_login');
     }
 
-    public function show_dashboard() {
-        $this->AuthLogin();  
+    public function show_dashboard(){
         return view('admin.dashboard');
     }
 
-    public function dashboard(Request $request){
+    public function LogIn(Request $request){
         $admin_email = $request->input('admin_email');
         $admin_password =  md5($request->input('admin_password'));
 
