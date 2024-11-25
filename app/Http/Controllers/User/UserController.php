@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\SignUpRequest;
+use App\Http\Requests\LogInRequest;
 
 class UserController extends Controller
 {
@@ -15,7 +17,8 @@ class UserController extends Controller
         return view('user_login');
     }
 
-    public function logIn(Request $request){
+    public function logIn(LogInRequest $request){
+   
         $user_nameOrEmail = $request->input('user_nameOrEmail');
         $user_password = $request->input('user_password');
 
@@ -34,15 +37,10 @@ class UserController extends Controller
     }
 
 
-    public function signUp(Request $request){
+    public function signUp(SignUpRequest $request){
         $user_name = $request->input('user_name');
         $user_email = $request->input('user_email');
         $user_password = $request->input('user_password');
-
-        $this->checkPassword($user_password);
-        if (Session::has('message')) {
-            return Redirect::back()->withInput();
-        }
 
         $result = DB::table('user_table')
             ->select('user_id', 'user_password')
@@ -53,6 +51,7 @@ class UserController extends Controller
             Session::flash('message', 'Tên người dùng hoặc email đã tồn tại, vui lòng chọn tên khác.');
             return Redirect::back()->withInput();
         }else{
+
             DB::table('user_table')->insert([
                 'user_name' => $user_name,
                 'user_email' => $user_email,
@@ -61,26 +60,6 @@ class UserController extends Controller
             Session::flash('message', 'Đăng ký thành công, vui lòng đăng nhập');
             return Redirect::to('/user');
         }
-    }
-
-    private function checkPassword(String $user_password){
-        $errors = [];
-    
-        if(strlen($user_password) < 8){
-            $errors[] = "Mật khẩu quá ngắn! Phải có ít nhất 8 ký tự.";
-        }
-        if(!preg_match("#[0-9]+#", $user_password)){
-            $errors[] = "Mật khẩu phải bao gồm ít nhất một chữ số!";
-        }
-        if(!preg_match("#[a-zA-Z]+#", $user_password)){
-            $errors[] = "Mật khẩu phải bao gồm ít nhất một chữ cái!";
-        }
-
-        if(!empty($errors)){
-            session::flash('message', implode(" ", $errors));
-        }
-    
-
     }
 
     public function forget_password(){
