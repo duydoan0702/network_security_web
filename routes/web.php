@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CategoryProduct;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryProduct;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CartController;
+use App\Http\Controllers\User\UserController;
 
 // Route tĩnh trả về các view
 Route::view('/news', 'pages.news');
