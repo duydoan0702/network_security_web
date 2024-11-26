@@ -56,7 +56,7 @@
 				@enderror
 				
 				<div class="forget_password">
-					<a href="{{ url('user/forget-password') }}">Quên Mật Khẩu?</a>
+					<a href="{{ url('user/sendOTP') }}">Quên Mật Khẩu?</a>
 					<input type="checkbox" name="show_password" id="show_password">
 				</div>
 				<button name="login" type="submit">Login</button>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\SignUpRequest;
 use App\Http\Requests\LogInRequest;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -62,8 +63,37 @@ class UserController extends Controller
         }
     }
 
-    public function forget_password(){
+    public function sendOTP(){
         return view('users.forget_password');
+    }
+
+
+    public function sendVerificationCode(Request $request)
+    {
+        $request->validate([
+            'user_email' => 'required|email',
+        ]);
+
+        $user_email = $request->input('user_email');
+
+        $user = DB::table('user_table')->where('user_email', $user_email)->first();
+        if (!$user) {
+            return Redirect::back()->with('message', 'Email không tồn tại trong hệ thống!');
+        }
+
+        $verificationCode = rand(100000, 999999);
+
+        Session::put('verification_code', $verificationCode);
+        Session::put('verification_email', $user_email);
+
+        $data = ['verificationCode' => $verificationCode];
+
+        Mail::send('emails.mail', $data, function ($message) use ($user_email) {
+            $message->to($user_email)
+                ->subject('Mã xác nhận lấy lại mật khẩu');
+        });
+
+            //return Redirect::to('users/verifyOTP')->with('message', 'Mã OTP đã được gửi đến email của bạn!');
     }
 
 

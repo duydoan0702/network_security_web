@@ -21,7 +21,8 @@ Route::prefix('user')->group(function () {
     Route::get('/', [UserController::class, 'index']);
     Route::post('/logIn', [UserController::class, 'logIn']);
     Route::post('/signUp', [UserController::class, 'signUp']);
-    Route::get('/forget-password', [UserController::class, 'forget_password']);
+    Route::get('/sendOTP', [UserController::class, 'sendOTP']);
+    Route::post('/verificationCode', [UserController::class, 'sendVerificationCode']);
 });
 
 // Route cho Admin
