@@ -8,12 +8,16 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 <body>
+    @if (session('message'))
+		<div class="text-alert">{{ session('message') }}</div>	
+	@endif
     <div class="container">
         <header>
             <i class="bx bxs-check-shield"></i>
         </header>
         <h4>Enter OTP Code</h4>
-        <form action="#" method="post">
+        <form action="{{URL::to('user/confirmOTP')}}" method="post">
+            @csrf
             <div class="input-field">
                 <input type="number" name="otp_digit1" />
                 <input type="number" name="otp_digit2" disabled />

@@ -23,6 +23,10 @@ Route::prefix('user')->group(function () {
     Route::post('/signUp', [UserController::class, 'signUp']);
     Route::get('/sendOTP', [UserController::class, 'sendOTP']);
     Route::post('/verificationCode', [UserController::class, 'sendVerificationCode']);
+    Route::view('/verifyOTP', 'users.verifyOTP');
+    Route::post('/confirmOTP', [UserController::class, 'confirmOTP']);
+    Route::view('/resetPassword', 'users.resetPassword');
+    Route::post('/confirmPassword', [UserController::class, 'resetPassword']);
 });
 
 // Route cho Admin
