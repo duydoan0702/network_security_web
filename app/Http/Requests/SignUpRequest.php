@@ -26,7 +26,7 @@ class SignUpRequest extends FormRequest
         return [
             'user_name' => 'bail|required|string|max:255|unique:user_table,user_name',
             'user_email' => 'bail|required|email|unique:user_table,user_email',
-            'user_password' => 'bail|required|string|min:8|regex:/[A-Z]/|regex:/[0-9]/',    
+            'user_password_signup' => 'bail|required|string|min:8|regex:/[A-Z]/|regex:/[0-9]/',    
         ];
     }
 
@@ -42,11 +42,11 @@ class SignUpRequest extends FormRequest
             'user_email.email' => 'Email không hợp lệ.',
             'user_email.unique' => 'Email này đã được sử dụng.',
 
-            'user_password.required' => 'Mật khẩu không được bỏ trống.',
-            'user_password.string' => 'Mật khẩu phải là chuỗi ký tự.',
-            'user_password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
+            'user_password_signup.required' => 'Mật khẩu không được bỏ trống.',
+            'user_password_signup.string' => 'Mật khẩu phải là chuỗi ký tự.',
+            'user_password_signup.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
 
-            'user_password.regex' => [
+            'user_password_signup.regex' => [
             'regex:/[A-Z]/' => 'Mật khẩu phải bao gồm ít nhất một chữ hoa.',
             'regex:/[0-9]/' => 'Mật khẩu phải bao gồm ít nhất một chữ số.',
             ],

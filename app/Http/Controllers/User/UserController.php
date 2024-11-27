@@ -21,7 +21,7 @@ class UserController extends Controller
     public function logIn(LogInRequest $request){
    
         $user_nameOrEmail = $request->input('user_nameOrEmail');
-        $user_password = $request->input('user_password');
+        $user_password = $request->input('user_password_login');
 
         $result = DB::table('user_table')
             ->where('user_name', $user_nameOrEmail) 
@@ -41,7 +41,7 @@ class UserController extends Controller
     public function signUp(SignUpRequest $request){
         $user_name = $request->input('user_name');
         $user_email = $request->input('user_email');
-        $user_password = $request->input('user_password');
+        $user_password = $request->input('user_password_signup');
 
         $result = DB::table('user_table')
             ->select('user_id', 'user_password')
