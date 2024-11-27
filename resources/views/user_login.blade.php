@@ -55,7 +55,7 @@
 					<span class="error-message">{{ $message }}</span>
 				@enderror
 				
-				<div class="forget_password">
+				<div class="forget-password-container">
 					<a href="{{ url('user/sendOTP') }}">Quên Mật Khẩu?</a>
 					<input type="checkbox" name="show_password" id="show_password">
 				</div>

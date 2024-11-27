@@ -104,6 +104,31 @@ button:hover{
 	transform: scale(.6);
 }
 
+.forget-password-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	margin-top: -30px;
+	margin-left: 70px;
+    width: 80%;
+}
+
+.forget-password-container a {
+    color: #573b8a;
+    font-size: 0.9em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forget-password-container a:hover {
+    color: #6d44b8;
+}
+
+.forget-password-container input[type="checkbox"] {
+    transform: scale(1.0); 
+    cursor: pointer; 
+}
+
 
 
 #chk:checked ~ .login{
