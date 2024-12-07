@@ -39,8 +39,6 @@
 			</div>
 		</div>
 	</section>
-  @include("elements.footer")
-  <!--/Footer-->
       <script src="{{asset('public/frontend/js/jquery.js')}}"></script>
       <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
       <script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>

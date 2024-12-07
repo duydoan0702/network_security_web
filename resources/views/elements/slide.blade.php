@@ -12,41 +12,39 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free E-Commerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                <h1>Sản Phẩm Nổi Bật</h1>
+                                <p>Khám phá các sản phẩm công nghệ hiện đại, với thiết kế tối ưu và tính năng vượt trội, mang đến trải nghiệm tuyệt vời cho bạn. </p>
+                                <button type="button" class="btn btn-default get">Khám phá ngay</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ asset('public/frontend/images/home/girl1.jpg') }}" class="girl img-responsive" alt="" />
-                                <img src="{{ asset('public/frontend/images/home/pricing.png') }}" class="pricing" alt="" />
+                                <img src="{{ asset('public/frontend/images/home/newProduct1.png') }}" class="girl img-responsive" alt="" />
+                                <img src="{{ asset('public/frontend/images/home/sale2.png') }}" class="pricing" alt="" />
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>100% Responsive Design</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                <h1>Sản Phẩm nổi bật</h1>
+                                <p>Khám phá các sản phẩm công nghệ hiện đại, với thiết kế tối ưu và tính năng vượt trội, mang đến trải nghiệm tuyệt vời cho bạn. </p>
+                                <button type="button" class="btn btn-default get">Khám phá ngay</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ asset('public/frontend/images/home/girl2.jpg') }}" class="girl img-responsive" alt="" />
-                                <img src="{{ asset('public/frontend/images/home/pricing.png') }}" class="pricing" alt="" />
+                                <img src="{{ asset('public/frontend/images/home/newProduct2.png') }}" class="girl img-responsive" alt="" />
+                                <img src="{{ asset('public/frontend/images/home/sale2.png') }}" class="pricing" alt="" />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1>Sản Phẩm nổi bật</h1>
+                                <p>Khám phá các sản phẩm công nghệ hiện đại, với thiết kế tối ưu và tính năng vượt trội, mang đến trải nghiệm tuyệt vời cho bạn. </p>
+                                <button type="button" class="btn btn-default get">Khám phá ngay</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="{{ asset('public/frontend/images/home/newProduct3.png') }}" class="girl img-responsive" alt="" />
+                                <img src="{{ asset('public/frontend/images/home/sale2.png') }}" class="pricing" alt="" />
                             </div>
                         </div>
                         
-                        <div class="item">
-                            <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free Ecommerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="{{ asset('public/frontend/images/home/girl3.jpg') }}" class="girl img-responsive" alt="" />
-                                <img src="{{ asset('public/frontend/images/home/pricing.png') }}" class="pricing" alt="" />
-                            </div>
-                        </div>
+                
                     </div>
                     
                     <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">

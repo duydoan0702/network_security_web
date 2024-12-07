@@ -9,7 +9,7 @@
         <div class="product-image-wrapper">
             <div class="single-products">
                 <div class="productinfo text-center">
-                    <form action="{{URL::to('/pages/cart-show_cart')}}" method="POST">
+                    <form action="{{URL::to('/save-cart')}}" method="POST">
                         @csrf
                         <!-- Truyền dữ liệu sản phẩm vào form ẩn -->
                         <input type="hidden" value="{{ $product->product_id }}" class="cart_product_id_{{ $product->product_id }}">
@@ -26,7 +26,7 @@
                         </a>
 
                         <!-- Nút thêm vào giỏ hàng -->
-                        <button type="button" class="btn btn-default add-to-cart" 
+                        <button type="submit" class="btn btn-default add-to-cart" 
                                 data-id_product="{{ $product->product_id }}" name="add-to-cart">
                             Thêm giỏ hàng
                         </button>
