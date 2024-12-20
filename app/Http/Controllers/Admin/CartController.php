@@ -62,4 +62,19 @@ class CartController extends Controller
             'url_canonical'
         ));
     }
+
+    public function delete_to_cart($rowId)
+    {
+        Cart::update($rowId, 0);
+        return Redirect::to('/show-cart');
+    }
+
+    public function update_cart_quantity(Request $request)
+    {
+        $rowId = $request->input('rowId_cart');
+        $quantity = $request->input('cart_quantity');
+
+        Cart::update($rowId, $quantity);
+        return Redirect::to('/show-cart');
+    }
 }
