@@ -13,7 +13,6 @@ Route::view('/news', 'pages.news');
 Route::view('/contract', 'pages.contract');
 
 // Route trang chủ
-Route::get('/', [HomeController::class, 'index']);
 Route::get('/product', [HomeController::class, 'index']);
 
 // Route cho User
@@ -50,12 +49,15 @@ Route::prefix('admin')->group(function () {
 
 //// Route cho danh mục sản phẩm
     Route::get('/danh-muc-san-pham/{slug_category_product}',[CategoryProduct::class, 'show_category_home']);
-    Route::post('/save-cart',[CartController::class, 'save_cart']);
-    Route::get('/show-cart',[CartController::class, 'show_cart']);
     Route::get('/add_category_product', [CategoryProduct::class, 'add_category_product']);
     Route::get('/all_category_product', [CategoryProduct::class, 'all_category_product']);
     Route::post('/save_category_product', [CategoryProduct::class, 'save_category_product']);
     Route::get('/unactive_category_product/{category_product_id}', [CategoryProduct::class, 'unactive_category_product']);
     Route::get('/active_category_product/{category_product_id}', [CategoryProduct::class, 'active_category_product']);
+// Route for CartController
+    Route::post('/save-cart',[CartController::class, 'save_cart']);
+    Route::get('/show-cart',[CartController::class, 'show_cart']);
+    Route::get('/delete-to-cart/{rowId}',[CartController::class, 'delete_to_cart']);
+    Route::post('/update-cart-quantity',[CartController::class, 'update_cart_quantity']);
 
 

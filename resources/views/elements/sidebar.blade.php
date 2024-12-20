@@ -1,7 +1,7 @@
 <div class="left-sidebar">
 	<h2>Danh mục sản phẩm</h2>
 	<div class="panel-group category-products" id="accordian">
-	<!--category-productsr-->
+	<!--category-product-->
 	@foreach($category as $key => $cate)
 		<div class="panel panel-default">
 			<div class="panel-heading">

@@ -11,6 +11,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
+    
     public function save_cart(Request $request)
     {
         $productId = $request->input('productid_hidden');
@@ -36,7 +37,7 @@ class CartController extends Controller
         ];
 
         Cart::add($data);
-        return Redirect::to('/show_cart');
+        return Redirect::to('/show-cart');
     }
 
     public function show_cart(Request $request)
@@ -54,12 +55,28 @@ class CartController extends Controller
             ->get();
 
         // Trả về view với dữ liệu
-        return view('pages.cart.show_cart', compact(
-            'cate_product',
-            'meta_desc',
-            'meta_keywords',
-            'meta_title',
-            'url_canonical'
-        ));
+        return view('pages.cart.show_cart', [
+            'category' => $cate_product,
+            'meta_desc' => $meta_desc,
+            'meta_keywords' => $meta_keywords,
+            'meta_title' => $meta_title,
+            'url_canonical' => $url_canonical,
+        ]);
+        
+    }
+
+    public function delete_to_cart($rowId)
+    {
+        Cart::update($rowId, 0);
+        return Redirect::to('/show-cart');
+    }
+
+    public function update_cart_quantity(Request $request)
+    {
+        $rowId = $request->input('rowId_cart');
+        $quantity = $request->input('cart_quantity');
+
+        Cart::update($rowId, $quantity);
+        return Redirect::to('/show-cart');
     }
 }

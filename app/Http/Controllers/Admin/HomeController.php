@@ -34,7 +34,7 @@ class HomeController extends Controller
             ->get();
 
         // Truyền dữ liệu sang view
-        return view('pages.home', [
+        return view('pages.product', [
             'category' => $cate_product,
             'all_product' => $all_product,
             'meta_desc' => $meta_desc,
