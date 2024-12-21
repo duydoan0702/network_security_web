@@ -102,8 +102,8 @@
 
                         <!-- Hiển thị nút "Thanh toán" -->
                         <?php
-                        $customer_id = Session::get('customer_id');
-                        if ($customer_id != NULL) { 
+                        $user_id = Session::get('user_id');
+                        if ($user_id != NULL) { 
                         ?>
                             <a class="btn btn-default check_out" href="{{ URL::to('/checkout') }}">Thanh toán</a>
                         <?php } else { ?>

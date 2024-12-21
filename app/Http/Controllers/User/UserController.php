@@ -30,7 +30,7 @@ class UserController extends Controller
 
         if($result && Hash::check($user_password, $result->user_password)){
             Session::put('user_id', $result->user_id);
-            return Redirect::intended('/home-page');
+            return Redirect::intended('/product');
         }else{
             Session::flash('message', 'Mật khẩu hoặc email không đúng, vui lòng nhập lại');
             return Redirect::to('/user');

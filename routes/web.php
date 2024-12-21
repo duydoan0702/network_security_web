@@ -59,5 +59,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/show-cart',[CartController::class, 'show_cart']);
     Route::get('/delete-to-cart/{rowId}',[CartController::class, 'delete_to_cart']);
     Route::post('/update-cart-quantity',[CartController::class, 'update_cart_quantity']);
+    Route::get('login-checkout',[CartController::class, 'login_checkout']);
+    Route::get('checkout',[CartController::class, 'checkout']);
+    Route::post('save-checkout-customer',[CartController::class, 'save_checkout_customer']);
+    Route::get('payment',[CartController::class, 'payment']);
 
 
