@@ -24,9 +24,6 @@
                     <li class="active">Thanh toán giỏ hàng</li>
                 </ol>
             </div>
-            <div class="review-payment">
-                <h2>Xem lại giỏ hàng</h2>
-            </div>
             <div class="table-responsive cart_info">
                 <?php
                 $content = Cart::content();
@@ -83,7 +80,7 @@
                     </tbody>
                 </table>
             </div>
-            <h4 style="margin:40px 0;font-size: 20px;">Chọn hình thức thanh toán</h4>
+            <h4 style="margin:40px 0;font-size: 20px; color:brown;">Chọn hình thức thanh toán</h4>
             <form method="POST" action="{{URL::to('/order-place')}}">
                 @csrf
                 <div class="payment-options">

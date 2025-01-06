@@ -29,7 +29,7 @@
 
     <!-- Hiển thị sản phẩm thuộc danh mục -->
     @foreach($category_by_id as $key => $product)
-        <a href="{{ URL::to('/chi-tiet-san-pham/' . $product->product_slug) }}">
+        <a href="{{ URL::to('/chi-tiet-san-pham/' . $product->product_id) }}">
             <div class="col-sm-4">
                 <div class="product-image-wrapper">
                     <div class="single-products">
@@ -60,21 +60,5 @@
      data-href="{{ url()->current() }}" 
      data-width="" 
      data-numposts="20">
-</div>
-
-<!-- Facebook Page Plugin -->
-<div class="fb-page" 
-     data-href="https://www.facebook.com/webextrasite/" 
-     data-tabs="message" 
-     data-width="" 
-     data-height="" 
-     data-small-header="false" 
-     data-adapt-container-width="true" 
-     data-hide-cover="false" 
-     data-show-facepile="true">
-    <blockquote cite="https://www.facebook.com/webextrasite/" 
-                class="fb-xfbml-parse-ignore">
-        <a href="https://www.facebook.com/webextrasite/">Webextrasite - Công Ty Thiết Kế Website - Đào tạo tin học Online</a>
-    </blockquote>
 </div>
 @endsection

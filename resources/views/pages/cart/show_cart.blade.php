@@ -20,7 +20,7 @@
             <!-- Breadcrumb -->
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="{{ URL::to('/product') }}">Home</a></li>
+                    <li><a href="{{ URL::to('/user/product') }}">Home</a></li>
                     <li class="active">Giỏ hàng của bạn</li>
                 </ol>
             </div>

@@ -8,9 +8,6 @@
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 <body>
-    @if (session('message'))
-		<div class="text-alert">{{ session('message') }}</div>	
-	@endif
     <div class="container">
         <header>
             <i class="bx bxs-check-shield"></i>

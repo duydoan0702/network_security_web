@@ -11,7 +11,6 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
-    
     public function save_cart(Request $request)
     {
         $productId = $request->input('productid_hidden');
@@ -37,7 +36,7 @@ class CartController extends Controller
         ];
 
         Cart::add($data);
-        return Redirect::to('/show-cart');
+        return Redirect::to('/show_cart');
     }
 
     public function show_cart(Request $request)
@@ -55,14 +54,13 @@ class CartController extends Controller
             ->get();
 
         // Trả về view với dữ liệu
-        return view('pages.cart.show_cart', [
-            'category' => $cate_product,
-            'meta_desc' => $meta_desc,
-            'meta_keywords' => $meta_keywords,
-            'meta_title' => $meta_title,
-            'url_canonical' => $url_canonical,
-        ]);
-        
+        return view('pages.cart.show_cart', compact(
+            'cate_product',
+            'meta_desc',
+            'meta_keywords',
+            'meta_title',
+            'url_canonical'
+        ));
     }
 
     public function delete_to_cart($rowId)
@@ -78,50 +76,5 @@ class CartController extends Controller
 
         Cart::update($rowId, $quantity);
         return Redirect::to('/show-cart');
-    }
-
-    public function login_checkout(){
-        return view('user_login');
-    }
-
-    public function checkout()
-    {
-        $cate_product = DB::table('tbl_category_product')
-            ->where('category_status', 0)
-            ->orderBy('category_id', 'desc')
-            ->get();
-
-        //$city = City::orderBy('matp', 'ASC')->get();
-
-        return view('pages.cart.show_checkout',
-            [
-                'category' => $cate_product,
-                //'city' => $city,
-            ]);
-    }
-
-    public function save_checkout_customer(Request $request){
-        $data = array();
-        $data['shipping_name'] = $request->shipping_name;
-        $data['shipping_address'] = $request->shipping_address;
-        $data['shipping_phone'] = $request->shipping_phone;
-        $data['shipping_email'] = $request->shipping_email;
-        $data['shipping_notes'] = $request->shipping_notes;
-        $data['shipping_status'] = 1;
-
-        $shipping_id = DB::table('tbl_shipping')->insertGetId($data);
-        $data['shipping_method'] = $request->shipping_method;
-        Session::put('shipping_id', $shipping_id);
-
-        return Redirect::to('/payment');
-    }
-
-    public function payment(){
-        $cate_product = DB::table('tbl_category_product')
-            ->where('category_status', 1)
-            ->orderBy('category_id', 'desc')
-            ->get();
-
-        return view('pages.cart.payment')->with('category', $cate_product);
     }
 }

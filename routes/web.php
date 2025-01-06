@@ -13,12 +13,14 @@ Route::view('/news', 'pages.news');
 Route::view('/contract', 'pages.contract');
 
 // Route trang chủ
-Route::get('/product', [HomeController::class, 'index']);
+Route::get('/user/product', [HomeController::class, 'index']);
+Route::post('tim-kiem', [HomeController::class, 'search']);
 
 // Route cho User
 Route::prefix('user')->group(function () {
     Route::get('/', [UserController::class, 'index']);
     Route::post('/logIn', [UserController::class, 'logIn']);
+    Route::get('/logOut', [UserController::class, 'logOut']);
     Route::post('/signUp', [UserController::class, 'signUp']);
     Route::get('/sendOTP', [UserController::class, 'sendOTP']);
     Route::post('/verificationCode', [UserController::class, 'sendVerificationCode']);
@@ -26,6 +28,16 @@ Route::prefix('user')->group(function () {
     Route::post('/confirmOTP', [UserController::class, 'confirmOTP']);
     Route::view('/resetPassword', 'users.resetPassword');
     Route::post('/confirmPassword', [UserController::class, 'resetPassword']);
+    Route::get('/home', [UserController::class, 'show_home']);
+    Route::get('/practice', [UserController::class, 'show_practice']);
+    Route::get('/learn', [UserController::class, 'show_learn']);
+    Route::get('/start' , [UserController::class, 'show_start']);
+    Route::get('/type-of', [UserController::class, 'show_type_of']);
+    Route::get('/concepts-of', [UserController::class, 'show_concepts_of']);
+    Route::get('c1-quizz', [UserController::class, 'show_c1_quizz']);
+    Route::get('contact', [UserController::class, 'show_contact']);
+    Route::get('/train', [UserController::class, 'show_train']);
+    Route::get('/help', [UserController::class, 'show_help']);
 });
 
 // Route cho Admin
@@ -45,6 +57,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/edit_product/{product_id}', [ProductController::class ,'edit_product']);
     Route::post('/update_product/{product_id}', [ProductController::class , 'update_product']);
     Route::get('/delete_product/{product_id}', [ProductController::class ,'delete_product']);
+    Route::get('/chi-tiet-san-pham/{product_id}', [ProductController::class ,'details_product']);
+    Route::get('/chi-tiet-san-pham/{product_slug}', [ProductController::class ,'details_product']);
 
 
 //// Route cho danh mục sản phẩm
@@ -54,6 +68,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/save_category_product', [CategoryProduct::class, 'save_category_product']);
     Route::get('/unactive_category_product/{category_product_id}', [CategoryProduct::class, 'unactive_category_product']);
     Route::get('/active_category_product/{category_product_id}', [CategoryProduct::class, 'active_category_product']);
+
+
 // Route for CartController
     Route::post('/save-cart',[CartController::class, 'save_cart']);
     Route::get('/show-cart',[CartController::class, 'show_cart']);
@@ -63,5 +79,8 @@ Route::prefix('admin')->group(function () {
     Route::get('checkout',[CartController::class, 'checkout']);
     Route::post('save-checkout-customer',[CartController::class, 'save_checkout_customer']);
     Route::get('payment',[CartController::class, 'payment']);
+    Route::post('order-place',[CartController::class, 'order_place']);
+    Route::get('manage-order',[CartController::class, 'manage_order']);
+    Route::get('view-order/{orderId}',[CartController::class, 'view_order']);
 
 

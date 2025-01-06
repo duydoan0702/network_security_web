@@ -25,7 +25,7 @@
             </div>
 
             <div class="register-req">
-                <p>Làm ơn đăng ký hoặc đăng nhập để thanh toán giỏ hàng và xem lại lịch sử mua hàng</p>
+                <p>Hãy đăng nhập để thanh toán giỏ hàng</p>
             </div>
 
             <!-- Thông tin người mua -->
@@ -57,21 +57,17 @@
                 </div>
             </div>
 
-            <!-- Xem lại giỏ hàng -->
-            <div class="review-payment">
-                <h2>Xem lại giỏ hàng</h2>
-            </div>
 
             <!-- Phương thức thanh toán -->
             <div class="payment-options">
                 <span>
-                    <label><input type="checkbox"> Direct Bank Transfer</label>
+                    <label><input name="payment_option" type="checkbox"> Chuyển khoản</label>
                 </span>
                 <span>
-                    <label><input type="checkbox"> Check Payment</label>
+                    <label><input name="payment_option" type="checkbox"> Tiền mặt</label>
                 </span>
                 <span>
-                    <label><input type="checkbox"> PayPal</label>
+                    <label><input name="payment_option" type="checkbox"> PayPal</label>
                 </span>
             </div>
         </div>

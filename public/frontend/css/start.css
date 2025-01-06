@@ -1,0 +1,174 @@
+body {
+    margin: 0;
+    display: flex;
+    font-family: Arial, sans-serif;
+  }
+  
+  .content {
+    margin-left: 20px;
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  h1,
+  h2 {
+    color: #333;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  ul li {
+    margin: 10px 0;
+  }
+  
+  ul li a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  p {
+    max-width: 600px;
+    margin: 10px 120px;
+    text-align: justify;
+    line-height: 1.8;
+  }
+  
+  img {
+    margin-left: 230px;
+  }
+  .ct {
+    max-width: 600px;
+    margin: 10px 180px;
+    text-align: justify;
+    line-height: 1.8;
+  }
+  .quizz body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+  }
+  .quizz .quiz-container {
+    margin: 20px;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .quizz .quiz-question {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  .quizz .submit-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .quizz button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .quizz button:hover {
+    background-color: #0056b3;
+  }
+  .quizz #quiz-result {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  iframe.sidebar {
+    width: 350px;
+    height: 100%;
+    border: none;
+  }
+  iframe.content {
+    flex-grow: 1;
+    height: 100%;
+    border: none;
+  }
+  
+  body {
+      display: flex;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-grow: 1;
+    }
+    .sidebar {
+      width: 300px;
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-right: 1px solid #ddd;
+      overflow-y: auto;
+      height: 100vh;
+      position: fixed;
+    }
+    .sidebar h2 {
+      font-size: 14px;
+      color: #333;
+      margin-top: 20px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar ul li {
+      margin: 10px 0;
+    }
+    .sidebar ul li a {
+      font-size: 13px;
+      text-decoration: none;
+      color: #007bff;
+    }
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+    }
+    .sidebar ul li a.active {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+    .sidebar ul li a:hover {
+      text-decoration: underline;
+      color: #0056b3;
+      background-color: #e9ecef;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+      .container {
+        flex-direction: column;
+      }
+    }

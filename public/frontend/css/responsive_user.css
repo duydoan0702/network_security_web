@@ -1,0 +1,147 @@
+/* Responsive Styles */
+
+/* Màn hình nhỏ hơn 1024px */
+@media screen and (max-width: 1024px) {
+    .navbar {
+      padding: 1rem 5%; /* Giảm padding */
+    }
+  
+    .nav-links {
+      flex-direction: column; /* Sắp xếp các liên kết theo cột */
+      display: none; /* Ẩn khi chưa mở menu */
+      position: absolute;
+      top: 80px;
+      right: 0;
+      width: 100%;
+      background: #111;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 9;
+    }
+  
+    .menu-icon {
+      display: block; /* Hiển thị menu icon */
+      font-size: 1.5rem;
+      color: #ddd;
+      cursor: pointer;
+    }
+  
+    .nav-links.show {
+      display: flex; /* Hiển thị menu khi mở */
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nav-links a {
+      padding: 1rem;
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+  
+    .hero-section {
+      padding: 1rem;
+      margin-left: 0; /* Đưa về chính giữa */
+      text-align: center;
+    }
+  
+    .trusted-logos img {
+      height: 30px; /* Giảm kích thước logo */
+    }
+    .navbar-menu {
+      display: none; /* Mặc định ẩn menu */
+      flex-direction: column;
+      position: absolute;
+      top: 80px; /* Điều chỉnh theo chiều cao navbar */
+      right: 5%;
+      background-color: #333;
+      width: 90%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 10;
+    }
+  
+    .navbar-menu.active {
+      display: flex;
+    }
+  
+    .navbar-toggler {
+      display: block;
+      font-size: 24px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  
+  /* Màn hình nhỏ hơn 768px */
+  @media screen and (max-width: 768px) {
+    .hero-section .title {
+      font-size: 2rem; /* Giảm kích thước tiêu đề */
+    }
+  
+    .cta-buttons .btn {
+      padding: 0.8rem 1.5rem; /* Điều chỉnh kích thước nút */
+    }
+  
+    .why-cybrary .icon-card {
+      width: 100%; /* Icon-card chiếm toàn bộ chiều ngang */
+      margin: 1rem 0;
+    }
+  
+    .contact-container {
+      width: 90%; /* Giảm kích thước khung liên hệ */
+    }
+  
+    .learn-practice-prove .content-container {
+      flex-direction: column; /* Xếp theo cột */
+      text-align: center;
+    }
+  
+    .learn-practice-prove .image {
+      margin: 2rem 0; /* Thêm khoảng cách giữa ảnh và văn bản */
+    }
+  
+    .accordion-content a {
+      margin-left: 0; /* Căn giữa các link */
+    }
+  }
+  
+  /* Màn hình nhỏ hơn 480px */
+  @media screen and (max-width: 480px) {
+    .navbar {
+      flex-direction: column; /* Sắp xếp navbar theo cột */
+      height: auto; /* Tự động căn chỉnh chiều cao */
+    }
+  
+    .nav-links a {
+      font-size: 0.9rem; /* Giảm kích thước chữ */
+    }
+  
+    .hero-section .title {
+      font-size: 1.5rem;
+    }
+  
+    .hero-section .subtitle {
+      font-size: 1rem; /* Giảm kích thước phụ đề */
+    }
+  
+    .cta-buttons .btn {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  
+    .why-cybrary h1 {
+      font-size: 1.8rem; /* Giảm kích thước tiêu đề */
+    }
+  
+    .footer-container {
+      flex-direction: column; /* Căn footer theo cột */
+    }
+  
+    .footer-container .logo {
+      margin-bottom: 1rem; /* Thêm khoảng cách giữa logo và icons */
+    }
+  }
+  

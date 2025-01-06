@@ -30,11 +30,16 @@ class UserController extends Controller
 
         if($result && Hash::check($user_password, $result->user_password)){
             Session::put('user_id', $result->user_id);
-            return Redirect::intended('/product');
+            return Redirect::intended('/user/home');
         }else{
             Session::flash('message', 'Mật khẩu hoặc email không đúng, vui lòng nhập lại');
             return Redirect::to('/user');
         }
+    }
+
+    public function logOut(){
+        Session::forget('user_id');
+        return Redirect::to('/user');
     }
 
 
@@ -149,5 +154,55 @@ class UserController extends Controller
         }else{
             return Redirect::to('user')->send();
         }
+    }
+
+    public function show_home(){
+        $this->AuthLogin();
+        return view('users.home');
+    }
+
+    public function show_practice(){
+        $this->AuthLogin();
+        return view('users.practice');
+    }
+
+    public function show_learn(){
+        $this->AuthLogin();
+        return view('users.learn');
+    }
+
+    public function show_start(){
+        $this->AuthLogin();
+        return view('users.start');
+    }
+
+    public function show_type_of(){
+        $this->AuthLogin();
+        return view('users.chappter1.type_of');
+    }
+
+    public function show_concepts_of(){
+        $this->AuthLogin();
+        return view('users.chappter1.concepts_of');
+    }
+
+    public function show_c1_quizz(){
+        $this->AuthLogin();
+        return view('users.chappter1.c1_quizz');
+    }
+
+    public function show_contact(){
+        $this->AuthLogin();
+        return view('users.contact');
+    }
+
+    public function show_train(){
+        $this->AuthLogin();
+        return view('users.train');
+    }
+
+    public function show_help(){
+        $this->AuthLogin();
+        return view('users.help');
     }
 }

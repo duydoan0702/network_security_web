@@ -3,15 +3,16 @@ h1, h2, h3 {margin: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
 
-h1{
-    color: #333333;
+h1 {
+    color: #00203F; 
     text-align: center;
 }
+
 html, body{
 	font-family: 'Roboto', sans-serif;
     font-size: 100%;
     overflow-x: hidden;
-    background: linear-gradient(90deg, #D3F5CF, #A8DBFA, #635EE2);
+    background: linear-gradient(90deg, #A1C4FD, #4A90E2, #00203F);
 	background-size: cover !important;
 }
 body a{
@@ -49,7 +50,7 @@ span.text-alert {
     width:240px;
     height:100%;
     position:fixed;
-    background:rgba(52, 48, 48, 0.78);
+    background: #000080;    
     -webkit-transition:all .3s ease-in-out;
     -moz-transition:all .3s ease-in-out;
     -o-transition:all .3s ease-in-out;
@@ -217,7 +218,7 @@ ul.sidebar-menu li a.active i {
     letter-spacing: 1px;
 }
 .footer p a {
-    color: #744e7d;
+    color: #000080;
 }
 .footer p a:hover {
     color: #fff;
@@ -226,7 +227,7 @@ ul.sidebar-menu li a.active i {
     left:0;
     right:0;
     z-index:1002;
-    background: #635EE2;
+    background: #000080;
     -webkit-transition:all .3s ease-in-out;
     -moz-transition:all .3s ease-in-out;
     -o-transition:all .3s ease-in-out;
@@ -246,7 +247,7 @@ ul.sidebar-menu li a.active i {
     width:100%;
 }
 .brand {
-    background: #5a45b8;
+    background: #000080 ;
     float:left;
     width:240px;
     height:80px;
@@ -791,7 +792,7 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
     font-size: 18px;
     font-weight: 400;
     padding: 0 16px;
-    background:#ddede0;
+    background:#000080;
    border-top-right-radius: 2px;
    border-top-left-radius: 2px; 
     text-transform: uppercase;
@@ -809,7 +810,7 @@ header.agileits-box-header.clearfix h3 {
     font-size: 24px;
     font-weight: 400;
     text-transform: uppercase;
-    color:#000;
+    color:#f7fbf8;
     text-align: center;
     margin-bottom: 1em;
 }
@@ -1640,7 +1641,7 @@ ul.bs-glyphicons-list {
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 .table-agile-info{
-	background: #eef9f0;
+	background: #000080;
     padding: 2em;
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
@@ -1655,7 +1656,7 @@ ul.bs-glyphicons-list {
 }
 .panel-default>.panel-heading {
     color: #000000 ! important;
-    background-color: #ddede0 ! important;
+    background-color: #000080 ! important;
     border-color: #ddede0 ! important;
     font-size: 20px;
 }

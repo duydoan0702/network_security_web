@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="">
-    <title> @yield('title') </title>
+    <link href="{{asset('public/frontend/css/user.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -40,11 +40,13 @@
 			</div>
 		</div>
 	</section>
+
+  @include("users.elements.footer")
       <script src="{{asset('public/frontend/js/jquery.js')}}"></script>
       <script src="{{asset('public/frontend/js/bootstrap.min.js')}}"></script>
       <script src="{{asset('public/frontend/js/jquery.scrollUp.min.js')}}"></script>
       <script src="{{asset('public/frontend/js/price-range.js')}}"></script>
-      <script src="{{asset('public/frontend/js/jquery.prettyPhoto.j')}}s"></script>
+      <script src="{{asset('public/frontend/js/jquery.prettyPhoto.j')}}"></script>
       <script src="{{asset('public/frontend/js/main.js')}}"></script>
 </body>
 </html>

@@ -49,11 +49,12 @@ class AdminController extends Controller
         $admin_id = Session::get('admin_id');
 
         if($admin_id){
-            return Redirect::to('dashboard');
+            return Redirect::to('/admin/show-dashboard');
         }else{
             return Redirect::to('admin')->send();
         }
     }
+
 
 
 }
