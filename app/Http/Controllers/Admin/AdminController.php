@@ -55,6 +55,11 @@ class AdminController extends Controller
         }
     }
 
+    public function add_product(){
+        $this->AuthLogin();
+        return view('admin.add_product');
+    }
+
 
 
 }
